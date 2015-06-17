@@ -1,0 +1,16 @@
+{
+  "name": "mongo-states-n-cities-br",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luiz Carraro",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.9.30",
+    "lodash": "^3.9.3",
+    "mongoose": "^4.0.5"
+  }
+}
