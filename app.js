@@ -1,17 +1,17 @@
-var mongoose  = require('mongoose'),
+let conecta = require('./connectDB.js'),
+    conectaBanco= conecta.retornaConexao()
     Promise   = require('bluebird'),
-    Schema    = mongoose.Schema,
+    Schema    = conectaBanco.Schema,
     _         =  require('lodash'),
     states    = require('./states');
 
-mongoose.connect('mongodb://localhost/testStatesNCities');
 
-var State = mongoose.model('State',{
+var State = conectaBanco.model('State',{
   name: String,
   shortname: String
 });
 
-var City = mongoose.model('City', {
+var City = conectaBanco.model('City', {
   name: String,
   state: { type: Schema.Types.ObjectId, ref: 'State' }
 });
@@ -22,7 +22,7 @@ _.each(states, function (state) {
     if(err) return console.log(err);
 
     console.log('Created -> ', savedState.name);
-    
+
     _.each(state.cities, function (city) {
       return City.create( _.extend(city, { state: savedState._id }), function (err, savedCity) {
         if(err) return console.log(err);
