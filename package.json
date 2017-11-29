@@ -11,6 +11,6 @@
   "dependencies": {
     "bluebird": "^2.9.30",
     "lodash": "^3.9.3",
-    "mongoose": "^4.0.5"
+    "mongoose": "^4.13.5"
   }
 }
